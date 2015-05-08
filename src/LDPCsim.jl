@@ -816,13 +816,13 @@ function ldpcEach(Ns,Mc,M,rate,mSparse,strategy,Niter,rdb)
     newH = zeros(M,N);
     #Profile.clear()
 
-    @printf("     ");
+    if isinteractive(); @printf("     "); end
 
     # Make random data (0/1)
     dSource = round(rand(M, Ns));
     for jx = 1:Ns
         tic();
-        if Ns<200 || mod(jx,100)==0
+        if (Ns<200 || mod(jx,100)==0) && isinteractive()
             @printf("\b\b\b\b\b%5d", jx);
         end
 
@@ -889,7 +889,7 @@ function ldpcEach(Ns,Mc,M,rate,mSparse,strategy,Niter,rdb)
 
         times[jx] = toq();
         if sum(times)>Ns/40
-            @printf("\b\b\b\b\b%5d", jx);
+            if isinteractive(); @printf("\b\b\b\b\b"); end
             Ns = jx
             break
         end
@@ -900,8 +900,8 @@ function ldpcEach(Ns,Mc,M,rate,mSparse,strategy,Niter,rdb)
     # using ProfileView
     # ProfileView.view()
 
-    @printf(" %5.1f %5d %5d   %3.2f %5d %5d  %5d  ",
-            rdb,  M, Niter, rate, Mc, mSparse, strategy)
+    @printf("%5d %5.1f %5d %5d   %3.2f %5d %5d  %5d  ",
+            Ns, rdb,  M, Niter, rate, Mc, mSparse, strategy)
 
     for ax = 1:Nalgs
         if ax<6

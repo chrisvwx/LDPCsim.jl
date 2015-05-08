@@ -1,5 +1,6 @@
-
+Pkg.add("PyPlot")
 using PyPlot
+
 include("../src/LDPCsim.jl")
 using LDPCsim
 

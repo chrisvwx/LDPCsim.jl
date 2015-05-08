@@ -25,7 +25,7 @@ both "simple" and "simulate".
 
 ```julia
 using PyPlot
-Pkg.add("LDPCsim")
+Pkg.clone("git@github.com:christianpeel/LDPCsim.jl.git")
 using LDPCsim
 
 # Simulate 1000 frames with 50 samples of BPSK per frame. Show

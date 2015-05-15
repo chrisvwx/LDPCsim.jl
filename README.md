@@ -16,10 +16,9 @@ Bradford Neal [2]. They are now widely used in digital
 communications. This package gives an implementation in Julia of the
 LDPC design technique in [3].
 
-This was implemented as a learning excercise and refresher; though it
-will hopefully become mature enough to be trusted and widely useful it
-is not so at present. The "sim" in "LDPCsim" at present stands for
-both "simple" and "simulate".
+This was implemented as a learning excercise; it will hopefully 
+become mature enough to be trusted and generally useful. The "sim" in "LDPCsim" at 
+present stands for both "simple" and "simulate".
 
 ### Examples and Results
 
